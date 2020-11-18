@@ -1,0 +1,23 @@
+  <table class="table table-striped table-bordered table-list">
+    <thead>
+        <tr>
+            <th >Album Id </th>
+            <th >Id </th>
+            <th>Title</th>
+            <th >URl</th>
+            <th>ThumbnailURL</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of products$ | async | paginate: config">
+            <td> {{item.albumId}} </td>
+            <td> {{item.id}} </td>
+            <td> {{item.title }} </td>
+            <td> {{item.url }} </td>
+            <td> {{item.thumbnailUrl}} </td>
+            <td><button (click)="Delete(item.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
